@@ -1,0 +1,5 @@
+fitz==0.0.1.dev2
+hwp5py==0.4.4
+python-pptx==0.6.18
+python-docx==0.8.11
+openai==0.10.5
