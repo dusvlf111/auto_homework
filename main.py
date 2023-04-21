@@ -58,7 +58,7 @@ class ChangeText:
                 file_path = os.path.join(root, file)
                 file_extension = os.path.splitext(file)[1]
                 file_list.append(file_path)
-                print(f"{idx+1}. File path: {file_path.replace('\\', '/')}, File extension: {file_extension}")
+            print(f"{idx+1}. File path: {file_path.replace('//' ,'/')}, File extension: {file_extension}")
 
         while True:
             try:
