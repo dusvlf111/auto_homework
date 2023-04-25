@@ -1,3 +1,10 @@
+#project_file
+config.json
+.replit
+replit.nix
+.upm
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -6,6 +6,10 @@ import os
 import json
 import openai
 
+
+# config.json 파일을 찾고 설정하는 코드 
+# config.json 파일잉 없다면 write_config_file
+
 class Config:
     def __init__(self): 
         self.CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), "config.json")    
@@ -62,7 +66,8 @@ class Config:
         api_key = self.get_api_key()
         print(f"Configured file path: {file_path}")
         print(f"Configured API key: {api_key}")
-    
+
+
 class ChangeText:
     def __init__(self):
         self.config = Config()
@@ -164,7 +169,7 @@ if __name__ == "__main__":
     
     
     # gpt 테스트
-  response_list = gpt_obj.chat_with_gpt(["Hello, how are you?", "What is your name?"])
-  print(response_list)
+  # response_list = gpt_obj.chat_with_gpt(["Hello, how are you?", "What is your name?"])
+  # print(response_list)
    
    
