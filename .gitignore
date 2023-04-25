@@ -1,8 +1,12 @@
 #project_file
+
 config.json
-.replit
+*.replit
+*.lock
 replit.nix
+pyproject.toml
 .upm
+
 
 
 # Byte-compiled / optimized / DLL files
