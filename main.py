@@ -163,26 +163,29 @@ class GPT:
 
   def chat_with_gpt(self):
     print("write option:")
-    self.option = str(input())
+    self.option = str(input().strip())
     response = openai.Completion.create(
       engine="text-davinci-003",
-      prompt=str(self.prompt_list)+"  details:"+self.option,
+      prompt=str(self.prompt_list)+"\n details:  "+self.option,
       max_tokens=2048,
       n=2,
       stop=None,
       temperature=0.5,
     )
+    print("-"*90)
+    print(self.prompt_list,"\n details:  "+self.option )
+    print("-"*90)
     print("\n 지피티의 답변: \n",response.choices[0].text)
+    
 
 
 if __name__ == "__main__":
   config = Config()
   change = ChangeText()
-  print("*****맨뒤에 공백 넣으면 애러남!!*****")
   a = input("바로 입력하려면 1 아니면 엔터:\n ")
   if a == "1":
     print("입력하시오:")
-    GPT(input()).chat_with_gpt()
+    GPT(input().strip()).chat_with_gpt()
   else:  
     text = change.run()
     gpt_obj = GPT(text)
