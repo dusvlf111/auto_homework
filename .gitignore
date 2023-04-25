@@ -7,7 +7,7 @@ replit.nix
 pyproject.toml
 .upm
 
-
+ 
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
