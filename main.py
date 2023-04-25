@@ -28,15 +28,6 @@ class Config:
     with open(self.CONFIG_FILE_PATH, "w") as f:
       json.dump(config, f, indent=4)
 
-  # def get_file_path(self):
-  #     config = self.read_config_file()
-  #     file_path = config.get("file_path", "")
-  #     if not os.path.isfile(file_path):
-  #         file_path = input("Enter the file path: ")
-  #         config["file_path"] = file_path
-  #         self.write_config_file(config)
-  #     return file_path
-
   def get_folder_path(self):
     config = self.read_config_file()
     file_path = config.get("file_path", "")
@@ -53,6 +44,13 @@ class Config:
       config["file_path"] = file_path
       self.write_config_file(config)
     return file_path
+  
+  def get_file_path(self):
+    config = self.read_config_file()
+    file_path = config.get("file_path", "")
+    return file_path
+    
+
 
   def get_api_key(self):
     config = self.read_config_file()
@@ -68,14 +66,14 @@ class Config:
     api_key = self.get_api_key()
     print(f"Configured file path: {file_path}")
     print(f"Configured API key: {api_key}")
-    return file_path
+    
 
 
 class ChangeText:
 
   def __init__(self):
     self.config = Config()
-    self.folder_path = self.config.get_folder_path()
+    self.folder_path = self.config.get_file_path()
 
   def print_files_in_folder(self):
     file_list = []
@@ -86,7 +84,6 @@ class ChangeText:
 
         if os.path.isfile(file_path):
           file_list.append(file_path)
-          print(file_list)
           print(
             f"{len(file_list)}. File path: {file_path.replace('//' ,'/')}, File extension: {file_extension}"
           )
@@ -95,10 +92,12 @@ class ChangeText:
       try:
         selected_file = int(
           input("Enter the number of the file you want to select: "))
+        if selected_file == 0:
+          return None
         self.file = file_list[selected_file - 1]
         #리스트에서 선택한 인덱스값의 파일경로 출력,
         return self.file
-
+    
       except (ValueError, IndexError):
         print("Invalid input, please try again.")
 
@@ -134,15 +133,15 @@ class ChangeText:
       text = f.read()
     return text
 
-  def run(self, file_path):
-    self.file = file_path
+  def run(self):
+    
+    self.file = self.print_files_in_folder()
     extension = os.path.splitext(self.file)[1]
 
     if extension == ".pdf":
       text = self.extract_pdf_text()
-    #elif extension == ".hwp":
-
-  #   text = self.extract_hwp_text()
+    elif extension == ".hwp":
+      text = self.extract_hwp_text()
     elif extension in [".ppt", ".pptx"]:
       text = self.extract_ppt_text()
     elif extension == ".docx":
@@ -163,29 +162,29 @@ class GPT:
     openai.api_key = self.config.get_api_key()
 
   def chat_with_gpt(self):
+    print("write option:")
+    self.option = str(input())
     response = openai.Completion.create(
-      engine="text-davinci-002",
-      prompt=self.prompt_list,
+      engine="text-davinci-003",
+      prompt=str(self.prompt_list)+"  details:"+self.option,
       max_tokens=2048,
-      n=1,
+      n=2,
       stop=None,
-      temperature=0.7,
+      temperature=0.5,
     )
-    print(response.choices[0].text)
+    print("\n 지피티의 답변: \n",response.choices[0].text)
 
 
 if __name__ == "__main__":
   config = Config()
-  file = config.run()
   change = ChangeText()
+  print("*****맨뒤에 공백 넣으면 애러남!!*****")
+  a = input("바로 입력하려면 1 아니면 엔터:\n ")
+  if a == "1":
+    print("입력하시오:")
+    GPT(input()).chat_with_gpt()
+  else:  
+    text = change.run()
+    gpt_obj = GPT(text)
+    out_solution = gpt_obj.chat_with_gpt()
 
-  text = change.run()
-
-  print(text)
-
-  gpt_obj = GPT(text)
-  out_solution = gpt_obj.chat_with_gpt()
-
-  # gpt 테스트
-  # response_list = gpt_obj.chat_with_gpt(["Hello, how are you?", "What is your name?"])
-  # print(response_list)
