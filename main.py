@@ -1,14 +1,14 @@
 import fitz # PyMuPDF               #pdf
-import hwp5py                       #hwp
+# import hwp5py                       #hwp
 from pptx import Presentation       #ppt
-from docx import Document           #docx
+import docx                         #docx
 import os
 import json
 import openai
 
-class config:
-    def __init__(self):
-        self.CONFIG_FILE_PATH = "config.json"    
+class Config:
+    def __init__(self): 
+        self.CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), "config.json")    
 
 
     def read_config_file(self):
@@ -22,15 +22,32 @@ class config:
         with open(self.CONFIG_FILE_PATH, "w") as f:
             json.dump(config, f, indent=4)
 
+    # def get_file_path(self):
+    #     config = self.read_config_file()
+    #     file_path = config.get("file_path", "")
+    #     if not os.path.isfile(file_path):
+    #         file_path = input("Enter the file path: ")
+    #         config["file_path"] = file_path
+    #         self.write_config_file(config)
+    #     return file_path
+  
     def get_file_path(self):
-        config = self.read_config_file()
-        file_path = config.get("file_path", "")
-        if not os.path.isfile(file_path):
-            file_path = input("Enter the file path: ")
-            config["file_path"] = file_path
-            self.write_config_file(config)
-        return file_path
+      config = self.read_config_file()
+      file_path = config.get("file_path", "")
+      if not os.path.isfile(file_path):
+          user_input = input("Enter the file path (or enter 1 to save to the same directory as the main file): ")
+          if user_input == '1':
+              main_file_path = os.path.abspath(__file__)
+              directory = os.path.dirname(main_file_path)
+              file_path = os.path.join(directory, "output.txt")
+          else:
+              file_path = user_input
+          config["file_path"] = file_path
+          self.write_config_file(config)
+      return file_path
 
+
+  
     def get_api_key(self):
         config = self.read_config_file()
         api_key = config.get("api_key", "")
@@ -74,9 +91,9 @@ class ChangeText:
                 text += page.getText()
             return text
 
-    def extract_hwp_text(self):
-        with hwp5py.HWP5File(self.file) as hwp:
-            return hwp.to_text()
+    # def extract_hwp_text(self):
+    #     with hwp5py.HWP5File(self.file) as hwp:
+    #         return hwp.to_text()
 
     def extract_ppt_text(self):
         with Presentation(self.file) as prs:
@@ -86,16 +103,27 @@ class ChangeText:
                     if hasattr(shape, 'text'):
                         text += shape.text
             return text
+    
+
+    def extract_word_text(self):
+       doc = docx.Document(self.file)
+       text = []
+       for para in doc.paragraphs:
+         text.append(para.text)
+       return "\n".join(text)
+
 
     def run(self):
         extension = os.path.splitext(self.file)[1]
 
         if extension == ".pdf":
             text = self.extract_pdf_text()
-        elif extension == ".hwp":
-            text = self.extract_hwp_text()
+        # elif extension == ".hwp":
+        #     text = self.extract_hwp_text()
         elif extension in [".ppt", ".pptx"]:
             text = self.extract_ppt_text()
+        elif extension == ".docx":
+            text = self.extract_word_text()
         else:
             raise ValueError("Unsupported file type")
     
@@ -103,15 +131,15 @@ class ChangeText:
         
         return text
         
- class GPT:
-    def __init__(self, prompt_list):
+class GPT:
+    def __init__(self,prompt_list):
         self.prompt_list = prompt_list
         self.config = Config()
         openai.api_key = self.config.get_api_key()
         
-    def chat_with_gpt(self, prompt_list):
+    def chat_with_gpt(self):
         self.response_list = []
-        for prompt in prompt_list:
+        for prompt in self.prompt_list:
             response = openai.Completion.create(
             engine="text-davinci-002",
             prompt=prompt,
@@ -124,22 +152,19 @@ class ChangeText:
             self.response_list.append(response_text)
             print(self.response_list)
         return self.response_list
-        
-    # def run(self):
-    #     ct = change.text()
-    #     file_text 
-    #     response_list = gpt_obj.chat_with_gpt(["Hello, how are you?", "What is your name?"])
-    #     print(response_list)
+      
+      
 
 if __name__ == "__main__":
-    config = Config()
-    change = ChangeText()
-    text = change.run()
-    gpt_obj = GPT(text)
+  config = Config()
+  change = ChangeText()
+  text = [change.run()]
+  gpt_obj = GPT(text)
+  out_solution = gpt_obj.chat_with_gpt()
     
     
-    //gpt test
-    response_list = gpt_obj.chat_with_gpt(["Hello, how are you?", "What is your name?"])
-    print(response_list)
+    # gpt 테스트
+  response_list = gpt_obj.chat_with_gpt(["Hello, how are you?", "What is your name?"])
+  print(response_list)
    
    

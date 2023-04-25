@@ -1,0 +1,718 @@
+[[package]]
+name = "aiohttp"
+version = "3.8.4"
+description = "Async http client/server framework (asyncio)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+aiosignal = ">=1.1.2"
+async-timeout = ">=4.0.0a3,<5.0"
+attrs = ">=17.3.0"
+charset-normalizer = ">=2.0,<4.0"
+frozenlist = ">=1.1.1"
+multidict = ">=4.5,<7.0"
+yarl = ">=1.0,<2.0"
+
+[package.extras]
+speedups = ["aiodns", "brotli", "cchardet"]
+
+[[package]]
+name = "aiosignal"
+version = "1.3.1"
+description = "aiosignal: a list of registered asynchronous callbacks"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+frozenlist = ">=1.1.0"
+
+[[package]]
+name = "async-timeout"
+version = "4.0.2"
+description = "Timeout context manager for asyncio programs"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "attrs"
+version = "23.1.0"
+description = "Classes Without Boilerplate"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+cov = ["attrs", "coverage[toml] (>=5.3)"]
+dev = ["attrs", "pre-commit"]
+docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier", "zope-interface"]
+tests = ["attrs", "zope-interface"]
+tests-no-zope = ["cloudpickle", "hypothesis", "mypy (>=1.1.1)", "pympler", "pytest-mypy-plugins", "pytest-xdist", "pytest (>=4.3.0)"]
+
+[[package]]
+name = "certifi"
+version = "2022.12.7"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "charset-normalizer"
+version = "3.1.0"
+description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+
+[[package]]
+name = "ci-info"
+version = "0.3.0"
+description = "Continuous Integration Information"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+all = ["pytest"]
+test = ["pytest"]
+tests = ["pytest"]
+
+[[package]]
+name = "click"
+version = "8.1.3"
+description = "Composable command line interface toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+description = "Cross-platform colored terminal text."
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "configobj"
+version = "5.0.8"
+description = "Config file reading, writing and validation."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+name = "configparser"
+version = "5.3.0"
+description = "Updated configparser from stdlib for earlier Pythons."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["sphinx", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "jaraco.tidelift (>=1.4)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "types-backports", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)"]
+
+[[package]]
+name = "docx"
+version = "0.2.4"
+description = "The docx module creates, reads and writes Microsoft Office Word 2007 docx files"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+lxml = "*"
+Pillow = ">=2.0"
+
+[[package]]
+name = "etelemetry"
+version = "0.3.0"
+description = "Etelemetry python client API"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+ci-info = ">=0.2"
+requests = "*"
+
+[package.extras]
+all = ["pytest", "pytest-cov", "codecov"]
+test = ["pytest", "pytest-cov", "codecov"]
+tests = ["pytest", "pytest-cov", "codecov"]
+
+[[package]]
+name = "filelock"
+version = "3.12.0"
+description = "A platform independent file lock."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo (>=2023.3.27)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)", "sphinx (>=6.1.3)"]
+testing = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "diff-cover (>=7.5)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest-timeout (>=2.1)", "pytest (>=7.3.1)"]
+
+[[package]]
+name = "fitz"
+version = "0.0.1.dev2"
+description = "Fitz: Workflow Mangement for neuroimaging data."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+configobj = "*"
+configparser = "*"
+httplib2 = "*"
+nibabel = "*"
+nipype = "*"
+numpy = "*"
+pandas = "*"
+pyxnat = "*"
+scipy = "*"
+
+[[package]]
+name = "frozenlist"
+version = "1.3.3"
+description = "A list-like structure which implements collections.abc.MutableSequence"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "future"
+version = "0.18.3"
+description = "Clean single-source support for Python 3 and 2"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "httplib2"
+version = "0.22.0"
+description = "A comprehensive HTTP client library."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+pyparsing = {version = ">=2.4.2,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.0.2 || >3.0.2,<3.0.3 || >3.0.3,<4", markers = "python_version > \"3.0\""}
+
+[[package]]
+name = "idna"
+version = "3.4"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "isodate"
+version = "0.6.1"
+description = "An ISO 8601 date/time/duration parser and formatter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+name = "looseversion"
+version = "1.1.2"
+description = "Version numbering for anarchists and software realists"
+category = "main"
+optional = false
+python-versions = ">=3"
+
+[[package]]
+name = "lxml"
+version = "4.9.2"
+description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
+
+[package.extras]
+cssselect = ["cssselect (>=0.7)"]
+html5 = ["html5lib"]
+htmlsoup = ["beautifulsoup4"]
+source = ["Cython (>=0.29.7)"]
+
+[[package]]
+name = "multidict"
+version = "6.0.4"
+description = "multidict implementation"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "networkx"
+version = "3.1"
+description = "Python package for creating and manipulating graphs and networks"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+default = ["numpy (>=1.20)", "scipy (>=1.8)", "matplotlib (>=3.4)", "pandas (>=1.3)"]
+developer = ["pre-commit (>=3.2)", "mypy (>=1.1)"]
+doc = ["sphinx (>=6.1)", "pydata-sphinx-theme (>=0.13)", "sphinx-gallery (>=0.12)", "numpydoc (>=1.5)", "pillow (>=9.4)", "nb2plots (>=0.6)", "texext (>=0.6.7)"]
+extra = ["lxml (>=4.6)", "pygraphviz (>=1.10)", "pydot (>=1.4.2)", "sympy (>=1.10)"]
+test = ["pytest (>=7.2)", "pytest-cov (>=4.0)", "codecov (>=2.1)"]
+
+[[package]]
+name = "nibabel"
+version = "5.1.0"
+description = "Access a multitude of neuroimaging data formats"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = ">=1.19"
+packaging = ">=17"
+
+[package.extras]
+all = ["nibabel"]
+dev = ["gitpython", "nibabel", "twine"]
+dicom = ["pydicom (>=1.0.0)"]
+dicomfs = ["nibabel", "pillow"]
+doc = ["matplotlib (>=1.5.3)", "numpydoc", "sphinx (>=5.3,<6.0)", "texext", "tomli"]
+doctest = ["nibabel"]
+minc2 = ["h5py"]
+spm = ["scipy"]
+style = ["blue", "flake8", "isort"]
+test = ["coverage", "pytest (!=5.3.4)", "pytest-cov", "pytest-doctestplus", "pytest-httpserver", "pytest-xdist"]
+typing = ["importlib-resources", "mypy", "pydicom", "pytest", "pyzstd", "types-pillow", "types-setuptools"]
+zstd = ["pyzstd (>=0.14.3)"]
+
+[[package]]
+name = "nipype"
+version = "1.8.6"
+description = "Neuroimaging in Python: Pipelines and Interfaces"
+category = "main"
+optional = false
+python-versions = ">= 3.7"
+
+[package.dependencies]
+click = ">=6.6.0"
+etelemetry = ">=0.2.0"
+filelock = ">=3.0.0"
+looseversion = "*"
+networkx = ">=2.0"
+nibabel = ">=2.1.0"
+numpy = ">=1.17"
+packaging = "*"
+prov = ">=1.5.2"
+pydot = ">=1.2.3"
+python-dateutil = ">=2.2"
+rdflib = ">=5.0.0"
+scipy = ">=0.14"
+simplejson = ">=3.8.0"
+traits = ">=4.6,<5.0 || >5.0,<6.4"
+
+[package.extras]
+all = ["codecov", "ipython", "matplotlib", "nbsphinx", "dipy", "pytest-cov", "sphinx-argparse", "paramiko", "duecredit", "coverage (<5)", "sphinx (>=2.1.2)", "xvfbwrapper", "fuzzywuzzy", "nitime", "pytest", "pytest-doctestplus", "black", "pytest-env", "datalad", "pytest-timeout", "gitpython", "psutil (>=5.0)", "nipy", "sphinx", "sphinxcontrib-apidoc", "nilearn", "pybids (>=0.7.0)"]
+data = ["datalad"]
+dev = ["codecov", "pytest", "pytest-doctestplus", "black", "ipython", "coverage (<5)", "sphinx", "matplotlib", "sphinxcontrib-apidoc", "pytest-env", "nbsphinx", "dipy", "pytest-cov", "pytest-timeout", "sphinx (>=2.1.2)", "sphinx-argparse"]
+doc = ["dipy", "ipython", "matplotlib", "nbsphinx", "sphinx-argparse", "sphinx (>=2.1.2)", "sphinxcontrib-apidoc"]
+duecredit = ["duecredit"]
+maint = ["gitpython", "fuzzywuzzy"]
+nipy = ["nitime", "nilearn", "dipy", "nipy", "matplotlib"]
+profiler = ["psutil (>=5.0)"]
+pybids = ["pybids (>=0.7.0)"]
+specs = ["black"]
+ssh = ["paramiko"]
+tests = ["codecov", "coverage (<5)", "pytest", "pytest-cov", "pytest-env", "pytest-timeout", "pytest-doctestplus", "sphinx"]
+xvfbwrapper = ["xvfbwrapper"]
+
+[[package]]
+name = "numpy"
+version = "1.24.2"
+description = "Fundamental package for array computing in Python"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
+name = "openai"
+version = "0.27.4"
+description = "Python client library for the OpenAI API"
+category = "main"
+optional = false
+python-versions = ">=3.7.1"
+
+[package.dependencies]
+aiohttp = "*"
+requests = ">=2.20"
+tqdm = "*"
+
+[package.extras]
+datalib = ["numpy", "pandas (>=1.2.3)", "pandas-stubs (>=1.1.0.11)", "openpyxl (>=3.0.7)"]
+dev = ["black (>=21.6b0,<22.0.0)", "pytest (>=6.0.0,<7.0.0)", "pytest-asyncio", "pytest-mock"]
+embeddings = ["scikit-learn (>=1.0.2)", "tenacity (>=8.0.1)", "matplotlib", "plotly", "numpy", "scipy", "pandas (>=1.2.3)", "pandas-stubs (>=1.1.0.11)", "openpyxl (>=3.0.7)"]
+wandb = ["wandb", "numpy", "pandas (>=1.2.3)", "pandas-stubs (>=1.1.0.11)", "openpyxl (>=3.0.7)"]
+
+[[package]]
+name = "packaging"
+version = "23.1"
+description = "Core utilities for Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "pandas"
+version = "2.0.0"
+description = "Powerful data structures for data analysis, time series, and statistics"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = [
+    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
+    {version = ">=1.23.2", markers = "python_version >= \"3.11\""},
+]
+python-dateutil = ">=2.8.2"
+pytz = ">=2020.1"
+tzdata = ">=2022.1"
+
+[package.extras]
+all = ["beautifulsoup4 (>=4.9.3)", "bottleneck (>=1.3.2)", "brotlipy (>=0.7.0)", "fastparquet (>=0.6.3)", "fsspec (>=2021.07.0)", "gcsfs (>=2021.07.0)", "html5lib (>=1.1)", "hypothesis (>=6.34.2)", "jinja2 (>=3.0.0)", "lxml (>=4.6.3)", "matplotlib (>=3.6.1)", "numba (>=0.53.1)", "numexpr (>=2.7.3)", "odfpy (>=1.4.1)", "openpyxl (>=3.0.7)", "pandas-gbq (>=0.15.0)", "psycopg2 (>=2.8.6)", "pyarrow (>=7.0.0)", "pymysql (>=1.0.2)", "PyQt5 (>=5.15.1)", "pyreadstat (>=1.1.2)", "pytest (>=7.0.0)", "pytest-xdist (>=2.2.0)", "pytest-asyncio (>=0.17.0)", "python-snappy (>=0.6.0)", "pyxlsb (>=1.0.8)", "qtpy (>=2.2.0)", "scipy (>=1.7.1)", "s3fs (>=2021.08.0)", "SQLAlchemy (>=1.4.16)", "tables (>=3.6.1)", "tabulate (>=0.8.9)", "xarray (>=0.21.0)", "xlrd (>=2.0.1)", "xlsxwriter (>=1.4.3)", "zstandard (>=0.15.2)"]
+aws = ["s3fs (>=2021.08.0)"]
+clipboard = ["PyQt5 (>=5.15.1)", "qtpy (>=2.2.0)"]
+compression = ["brotlipy (>=0.7.0)", "python-snappy (>=0.6.0)", "zstandard (>=0.15.2)"]
+computation = ["scipy (>=1.7.1)", "xarray (>=0.21.0)"]
+excel = ["odfpy (>=1.4.1)", "openpyxl (>=3.0.7)", "pyxlsb (>=1.0.8)", "xlrd (>=2.0.1)", "xlsxwriter (>=1.4.3)"]
+feather = ["pyarrow (>=7.0.0)"]
+fss = ["fsspec (>=2021.07.0)"]
+gcp = ["gcsfs (>=2021.07.0)", "pandas-gbq (>=0.15.0)"]
+hdf5 = ["tables (>=3.6.1)"]
+html = ["beautifulsoup4 (>=4.9.3)", "html5lib (>=1.1)", "lxml (>=4.6.3)"]
+mysql = ["SQLAlchemy (>=1.4.16)", "pymysql (>=1.0.2)"]
+output_formatting = ["jinja2 (>=3.0.0)", "tabulate (>=0.8.9)"]
+parquet = ["pyarrow (>=7.0.0)"]
+performance = ["bottleneck (>=1.3.2)", "numba (>=0.53.1)", "numexpr (>=2.7.1)"]
+plot = ["matplotlib (>=3.6.1)"]
+postgresql = ["SQLAlchemy (>=1.4.16)", "psycopg2 (>=2.8.6)"]
+spss = ["pyreadstat (>=1.1.2)"]
+sql-other = ["SQLAlchemy (>=1.4.16)"]
+test = ["hypothesis (>=6.34.2)", "pytest (>=7.0.0)", "pytest-xdist (>=2.2.0)", "pytest-asyncio (>=0.17.0)"]
+xml = ["lxml (>=4.6.3)"]
+
+[[package]]
+name = "pathlib"
+version = "1.0.1"
+description = "Object-oriented filesystem paths"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pillow"
+version = "9.5.0"
+description = "Python Imaging Library (Fork)"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-inline-tabs", "sphinx-removed-in", "sphinxext-opengraph"]
+tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
+
+[[package]]
+name = "prov"
+version = "2.0.0"
+description = "A library for W3C Provenance Data Model supporting PROV-JSON, PROV-XML and PROV-O (RDF)"
+category = "main"
+optional = false
+python-versions = ">=3.6, <4"
+
+[package.dependencies]
+lxml = ">=3.3.5"
+networkx = ">=2.0"
+python-dateutil = ">=2.2"
+rdflib = ">=4.2.1"
+
+[package.extras]
+dot = ["pydot (>=1.2.0)"]
+
+[[package]]
+name = "pydot"
+version = "1.4.2"
+description = "Python interface to Graphviz's Dot"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+pyparsing = ">=2.1.4"
+
+[[package]]
+name = "pyparsing"
+version = "3.0.9"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
+category = "main"
+optional = false
+python-versions = ">=3.6.8"
+
+[package.extras]
+diagrams = ["railroad-diagrams", "jinja2"]
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.2"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "python-pptx"
+version = "0.6.21"
+description = "Generate and manipulate Open XML PowerPoint (.pptx) files"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+lxml = ">=3.1.0"
+Pillow = ">=3.3.2"
+XlsxWriter = ">=0.5.7"
+
+[[package]]
+name = "pytz"
+version = "2023.3"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyxnat"
+version = "1.5"
+description = "XNAT in Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+future = ">=0.16"
+lxml = ">=4.3"
+pathlib = ">=1.0"
+requests = ">=2.20"
+six = ">=1.15"
+
+[[package]]
+name = "rdflib"
+version = "6.3.2"
+description = "RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information."
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+isodate = ">=0.6.0,<0.7.0"
+pyparsing = ">=2.1.0,<4"
+
+[package.extras]
+berkeleydb = ["berkeleydb (>=18.1.0,<19.0.0)"]
+networkx = ["networkx (>=2.0.0,<3.0.0)"]
+html = ["html5lib (>=1.0,<2.0)"]
+lxml = ["lxml (>=4.3.0,<5.0.0)"]
+
+[[package]]
+name = "requests"
+version = "2.28.2"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=3.7, <4"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+charset-normalizer = ">=2,<4"
+idna = ">=2.5,<4"
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+socks = ["PySocks (>=1.5.6,!=1.5.7)"]
+use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "scipy"
+version = "1.9.3"
+description = "Fundamental algorithms for scientific computing in Python"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = ">=1.18.5,<1.26.0"
+
+[package.extras]
+test = ["pytest", "pytest-cov", "pytest-xdist", "asv", "mpmath", "gmpy2", "threadpoolctl", "scikit-umfpack"]
+doc = ["sphinx (!=4.1.0)", "pydata-sphinx-theme (==0.9.0)", "sphinx-panels (>=0.5.2)", "matplotlib (>2)", "numpydoc", "sphinx-tabs"]
+dev = ["mypy", "typing-extensions", "pycodestyle", "flake8"]
+
+[[package]]
+name = "simplejson"
+version = "3.19.1"
+description = "Simple, fast, extensible JSON encoder/decoder for Python"
+category = "main"
+optional = false
+python-versions = ">=2.5, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "tqdm"
+version = "4.65.0"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
+name = "traits"
+version = "6.3.2"
+description = "Observable typed attributes for Python classes"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+docs = ["enthought-sphinx-theme", "Sphinx (>=2.1.0,!=3.2.0)"]
+examples = ["numpy", "pillow"]
+test = ["cython", "flake8", "flake8-ets", "mypy", "pyface", "setuptools", "Sphinx (>=2.1.0,!=3.2.0)", "traitsui", "numpy", "pyside2"]
+
+[[package]]
+name = "tzdata"
+version = "2023.3"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[[package]]
+name = "urllib3"
+version = "1.26.15"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.extras]
+brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[[package]]
+name = "xlsxwriter"
+version = "3.1.0"
+description = "A Python module for creating Excel XLSX files."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "yarl"
+version = "1.9.1"
+description = "Yet another URL library"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+idna = ">=2.0"
+multidict = ">=4.0"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "90498579a762216d093aa481a52497c9b87b681249c07bce401d513f684c26ed"
+
+[metadata.files]
+aiohttp = []
+aiosignal = []
+async-timeout = []
+attrs = []
+certifi = []
+charset-normalizer = []
+ci-info = []
+click = []
+colorama = []
+configobj = []
+configparser = []
+docx = []
+etelemetry = []
+filelock = []
+fitz = []
+frozenlist = []
+future = []
+httplib2 = []
+idna = []
+isodate = []
+looseversion = []
+lxml = []
+multidict = []
+networkx = []
+nibabel = []
+nipype = []
+numpy = []
+openai = []
+packaging = []
+pandas = []
+pathlib = []
+pillow = []
+prov = []
+pydot = []
+pyparsing = []
+python-dateutil = []
+python-pptx = []
+pytz = []
+pyxnat = []
+rdflib = []
+requests = []
+scipy = []
+simplejson = []
+six = []
+tqdm = []
+traits = []
+tzdata = []
+urllib3 = []
+xlsxwriter = []
+yarl = []
