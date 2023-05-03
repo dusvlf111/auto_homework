@@ -1,5 +1,4 @@
-# auto_homework
-
+# 과제 자동화 프로그램!!!
 
 
 # GPT-3 API를 이용한 챗봇
