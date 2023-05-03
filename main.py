@@ -105,7 +105,7 @@ class ChangeText:
     with fitz.open(self.file) as doc:
       text = ""
       for page in doc:
-        text += page.getText()
+        text += page.get_text()
       return text
 
   # def extract_hwp_text(self):
@@ -113,13 +113,16 @@ class ChangeText:
   #         return hwp.to_text()
 
   def extract_ppt_text(self):
-    with Presentation(self.file) as prs:
-      text = ""
-      for slide in prs.slides:
+    prs = Presentation(self.file)
+    text_pages = ""
+    for slide in prs.slides:
+        text = ""
         for shape in slide.shapes:
-          if hasattr(shape, 'text'):
-            text += shape.text
-      return text
+            if hasattr(shape, 'text'):
+                text += shape.text+"\n"
+        text_pages+=(text+"\n")
+    return text_pages
+
 
   def extract_word_text(self):
     doc = docx.Document(self.file)
@@ -161,6 +164,27 @@ class GPT:
     self.config = Config()
     openai.api_key = self.config.get_api_key()
 
+  def chat_with_gpt1(self):
+    prompt_sentences = self.prompt_list.split('\n')
+     # 입력된 prompt를 문장 단위로 쪼갬
+    response = ""
+    print("-"*90,"\n"*3)
+    for sentence in prompt_sentences:
+        sentence.strip()
+        if len(sentence) <= 10 : continue
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=sentence,
+            max_tokens=1000,
+            n=1,
+            stop=None,
+            temperature=0.5
+        ).choices[0].text
+        print("질문: \n \n",sentence)
+        print("-"*90)
+        print("지피티 답변:\n",response)
+        print("-"*90)
+        
   def chat_with_gpt(self):
     print("write option:")
     self.option = str(input().strip())
@@ -168,7 +192,7 @@ class GPT:
       engine="text-davinci-003",
       prompt=str(self.prompt_list)+"\n details:  "+self.option,
       max_tokens=2048,
-      n=2,
+      n=1,
       stop=None,
       temperature=0.5,
     )
@@ -176,7 +200,7 @@ class GPT:
     print(self.prompt_list,"\n details:  "+self.option )
     print("-"*90)
     print("\n 지피티의 답변: \n",response.choices[0].text)
-    
+
 
 
 if __name__ == "__main__":
@@ -188,6 +212,12 @@ if __name__ == "__main__":
     GPT(input().strip()).chat_with_gpt()
   else:  
     text = change.run()
-    gpt_obj = GPT(text)
-    out_solution = gpt_obj.chat_with_gpt()
+    print(text)
+    try:
+      gpt_obj = GPT(text)
+      gpt_obj.chat_with_gpt()
+    except:
+      gpt_obj = GPT(text)
+      gpt_obj.chat_with_gpt1()
+ 
 
